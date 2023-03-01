@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cc.abbie.oldpotions.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "PotionItemMixin",
+    "MobEffectsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

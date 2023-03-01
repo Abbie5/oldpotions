@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "oldpotions",
+  "version": "${version}",
+  "name": "Old Potions",
+  "description": "Bring back old potion colours and enchantment glint",
+  "authors": [ "Abbie" ],
+  "contact": {
+    "homepage": "https://github.com/Abbie5/oldpotions",
+    "sources": "https://github.com/Abbie5/oldpotions",
+    "issues": "https://github.com/Abbie5/oldpotions/issues"
+  },
+  "license": "LGPL-3.0",
+  "icon": "assets/oldpotions/icon.png",
+  "environment": "client",
+  "mixins": [
+    "oldpotions.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": ">=1.19.4-beta.3"
+  },
+  "accessWidener": "oldpotions.accesswidener"
+}
