@@ -10,5 +10,5 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "refmap": "oldpotions.refmap.json",
+  "refmap": "oldpotions.refmap.json"
 }
