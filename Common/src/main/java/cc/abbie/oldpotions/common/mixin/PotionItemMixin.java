@@ -1,10 +1,13 @@
-package cc.abbie.oldpotions.mixin;
+package cc.abbie.oldpotions.common.mixin;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.alchemy.PotionUtils;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
+
+import static cc.abbie.oldpotions.common.OldPotionsCommon.config;
 
 @Mixin(PotionItem.class)
 public abstract class PotionItemMixin extends Item {
@@ -13,7 +16,7 @@ public abstract class PotionItemMixin extends Item {
     }
 
     @Override
-    public boolean isFoil(ItemStack itemStack) {
-        return super.isFoil(itemStack) || !PotionUtils.getMobEffects(itemStack).isEmpty();
+    public boolean isFoil(@NotNull ItemStack itemStack) {
+        return super.isFoil(itemStack) || (config.enableGlint && !PotionUtils.getMobEffects(itemStack).isEmpty());
     }
 }
