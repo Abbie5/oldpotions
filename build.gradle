@@ -1,11 +1,19 @@
+plugins {
+    id "io.github.pacifistmc.forgix" version "1.2.6"
+}
+
+forgix {
+    group = project.group
+    mergedJarName = "${mod_id}-${version}+${minecraft_version}.jar"
+    outputDir = "build/libs/merged"
+}
+
 subprojects {
     
     apply plugin: 'java'
     
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-    java.withSourcesJar()
-    java.withJavadocJar()
-        
+
     jar {
         from(rootProject.file("LICENSE")) {
             rename { "${it}_${mod_name}" }
@@ -26,11 +34,6 @@ subprojects {
         }
     }
 
-    sourcesJar {
-        from(rootProject.file("LICENSE")) {
-            rename { "${it}_${mod_name}" }
-        }
-    }
 
     repositories {
 
@@ -71,4 +74,7 @@ subprojects {
 
         enabled = false
     }
+
+    build.finalizedBy(mergeJars)
+    assemble.finalizedBy(mergeJars)
 }

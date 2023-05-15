@@ -2,21 +2,20 @@ package cc.abbie.oldpotions.forge;
 
 import cc.abbie.oldpotions.common.OldPotionsCommon;
 import cc.abbie.oldpotions.common.OldPotionsConfig;
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
+import cc.abbie.oldpotions.common.OldPotionsConfigScreen;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.loading.FMLPaths;
 
-@Mod("oldpotions")
+@Mod(OldPotionsCommon.MOD_ID)
 public class OldPotions {
     public OldPotions() {
-        AutoConfig.register(OldPotionsConfig.class, Toml4jConfigSerializer::new);
-        OldPotionsCommon.config = AutoConfig.getConfigHolder(OldPotionsConfig.class).getConfig();
+        OldPotionsCommon.config = new OldPotionsConfig(FMLPaths.CONFIGDIR.get());
         ModLoadingContext.get().registerExtensionPoint(
                 ConfigScreenHandler.ConfigScreenFactory.class,
                 () -> new ConfigScreenHandler.ConfigScreenFactory(
-                        (client, parent) -> AutoConfig.getConfigScreen(OldPotionsConfig.class, parent).get()
+                        (client, parent) -> new OldPotionsConfigScreen(parent)
                 )
         );
     }

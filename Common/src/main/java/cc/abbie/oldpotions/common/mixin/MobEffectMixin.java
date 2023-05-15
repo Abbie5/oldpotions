@@ -49,7 +49,10 @@ public abstract class MobEffectMixin {
 
     @Inject(method = "getColor", at = @At("HEAD"), cancellable = true)
     private void oldpotions$modifyColor(CallbackInfoReturnable<Integer> cir) {
-        if (config.oldColors)
-            cir.setReturnValue(colors[MobEffect.getId((MobEffect) (Object) this) - 1]);
+        if (config.oldColors) {
+            int colorIndex = MobEffect.getId((MobEffect) (Object) this) - 1;
+            if (colorIndex < colors.length)
+                cir.setReturnValue(colors[colorIndex]);
+        }
     }
 }

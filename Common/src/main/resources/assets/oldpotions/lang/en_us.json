@@ -1,5 +1,5 @@
 {
-  "text.autoconfig.oldpotions.title": "Old Potions",
-  "text.autoconfig.oldpotions.option.enableGlint": "Enable potion glint",
-  "text.autoconfig.oldpotions.option.oldColors": "Enable old colors"
+  "config.oldpotions.title": "Old Potions options",
+  "config.oldpotions.option.enable_glint": "Potion glint",
+  "config.oldpotions.option.old_colors": "Old potion colors"
 }

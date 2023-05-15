@@ -1,10 +1,29 @@
 package cc.abbie.oldpotions.common;
 
-import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.annotation.Config;
+import com.electronwill.nightconfig.core.file.FileConfig;
 
-@Config(name = "oldpotions")
-public class OldPotionsConfig implements ConfigData {
-    public boolean enableGlint = true;
-    public boolean oldColors = true;
+import java.nio.file.Path;
+
+public class OldPotionsConfig {
+    private final FileConfig config;
+
+    public boolean enableGlint;
+    public boolean oldColors;
+
+    public OldPotionsConfig(Path configDir) {
+        config = FileConfig.of(configDir.resolve(OldPotionsCommon.MOD_ID + ".toml"));
+        load();
+    }
+
+    public void save() {
+        config.set("enable_glint", enableGlint);
+        config.set("old_colors", oldColors);
+        config.save();
+    }
+
+    public void load() {
+        config.load();
+        enableGlint = config.getOrElse("enable_glint", true);
+        oldColors = config.getOrElse("old_colors", true);
+    }
 }
