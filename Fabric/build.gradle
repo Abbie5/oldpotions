@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.1-SNAPSHOT'
+    id 'fabric-loom' version '1.2-SNAPSHOT'
     id 'maven-publish'
     id 'idea'
 }
@@ -42,9 +42,10 @@ loom {
 
 processResources {
     from project(":Common").sourceSets.main.resources
+    inputs.property "version", project.version
 
     filesMatching("fabric.mod.json") {
-        expand project.properties
+        expand "version": project.version
     }
 }
 

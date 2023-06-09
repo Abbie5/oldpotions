@@ -1,6 +1,6 @@
 package cc.abbie.oldpotions.common;
 
-import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.layouts.FrameLayout;
@@ -48,10 +48,10 @@ public class OldPotionsConfigScreen extends Screen {
     }
 
     @Override
-    public void render(@Nonnull PoseStack poseStack, int x, int y, float delta) {
-        renderBackground(poseStack);
-        drawCenteredString(poseStack, font, title, width / 2, 15, -1);
-        super.render(poseStack, x, y, delta);
+    public void render(@Nonnull GuiGraphics gui, int x, int y, float delta) {
+        renderBackground(gui);
+        gui.drawCenteredString(font, title, width / 2, 15, -1);
+        super.render(gui, x, y, delta);
     }
 
     @Override
