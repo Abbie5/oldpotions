@@ -2,6 +2,7 @@ package cc.abbie.oldpotions.common.mixin;
 
 import net.minecraft.world.effect.MobEffect;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -11,6 +12,7 @@ import static cc.abbie.oldpotions.common.OldPotionsCommon.config;
 @Mixin(MobEffect.class)
 public abstract class MobEffectMixin {
     // Taken from 1.19.3, array index corresponds to potion id - 1
+    @Unique
     private static final int[] colors = {
             8171462,
             5926017,
