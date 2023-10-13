@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.2-SNAPSHOT'
+    id 'fabric-loom' version '1.3-SNAPSHOT'
     id 'maven-publish'
     id 'idea'
 }
@@ -10,14 +10,14 @@ dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
     implementation project(":Common")
 
     modCompileOnly "com.terraformersmc:modmenu:${modmenu_version}"
     modLocalRuntime "com.terraformersmc:modmenu:${modmenu_version}"
 
-    include implementation("com.electronwill.night-config:core:3.6.0")
-    include implementation("com.electronwill.night-config:toml:3.6.0")
+    include implementation("com.electronwill.night-config:core:3.6.7")
+    include implementation("com.electronwill.night-config:toml:3.6.7")
 }
 
 loom {
