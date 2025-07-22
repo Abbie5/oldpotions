@@ -20,8 +20,8 @@ dependencies {
         modLocalRuntime fabricApi.module("fabric-${it}", project.fabric_version)
     }
 
-    include implementation("com.electronwill.night-config:core:3.6.7")
-    include implementation("com.electronwill.night-config:toml:3.6.7")
+    include implementation("com.electronwill.night-config:core:3.8.2")
+    include implementation("com.electronwill.night-config:toml:3.8.2")
 }
 
 loom {
